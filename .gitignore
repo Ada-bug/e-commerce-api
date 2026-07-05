@@ -1,0 +1,8 @@
+# Dependencies — never commit these
+node_modules/
+
+# Environment secrets — never commit this
+.env
+
+# Log files
+*.log
