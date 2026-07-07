@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-// const Product = require('./models/product.js')
+const Product = require('./models/product.js')
 const notFound = require('./middleware/notFound');
 const errorHandler = require('./middleware/errorHandler');
 // const mongoSanitize = require('express-mongo-sanitize'); --> it's not comp with express 5
@@ -16,13 +16,13 @@ app.use(express.json());
 // app.use(mongoSanitize()); --> i'll add it later
 
 // Import routes
-// const productRoutes = require('./routes/products');
+const productRoutes = require('./routes/products');
 const categoriesRoutes = require('./routes/categories')
 // note: why do we need both??? can't we just make ONE CRUD??
 // it's really redundant in my opinion :[
 
 // Use routes with a base path
-// app.use('/api/products', productRoutes);
+app.use('/api/products', productRoutes);
 app.use('/api/categories', categoriesRoutes)
 
 // Middleware:
