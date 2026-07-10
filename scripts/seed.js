@@ -2,15 +2,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const mongoose = require('mongoose');
-const connectDB = require('./db/connect');
+const connectDB = require('../db/connect');
 
-const Product = require('./models/Product');
-const Category = require('./models/Category');
-const Order = require("./models/Order");
+const Product = require('../models/Product');
+const Category = require('../models/Category');
+const Order = require("../models/Order");
 
-const products = require('./data/seedProducts');
-const categories = require('./data/seedCategories');
-const orders = require("./data/seedOrders");
+const products = require('../data/seedProducts');
+const categories = require('../data/seedCategories');
 
 const seedDatabase = async () => {
     try {

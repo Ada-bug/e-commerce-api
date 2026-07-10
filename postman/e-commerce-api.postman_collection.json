@@ -35,14 +35,14 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BaseURL}}/api/categories/6a4d5b9f37063579cd4d04eb",
+              "raw": "{{BaseURL}}/api/categories/{{categoryId}}",
               "host": [
                 "{{BaseURL}}"
               ],
               "path": [
                 "api",
                 "categories",
-                "6a4d5b9f37063579cd4d04eb"
+                "{{categoryId}}"
               ]
             }
           },
@@ -63,18 +63,63 @@
               }
             },
             "url": {
-              "raw": "{{BaseURL}}/api/categories/6a4ac4b27ca17c886e0530bb",
+              "raw": "{{BaseURL}}/api/categories/{{categoryId}}",
               "host": [
                 "{{BaseURL}}"
               ],
               "path": [
                 "api",
                 "categories",
-                "6a4ac4b27ca17c886e0530bb"
+                "{{categoryId}}"
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "edits category values",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"_id\": \"6a4ac4b27ca17c886e0530bb\",\r\n    \"name\": \"Clothing\",\r\n    \"description\": \"Things you wear\",\r\n    \"slug\": \"clothing\",\r\n    \"__v\": 0,\r\n    \"createdAt\": \"2026-07-06T13:03:00.742Z\",\r\n    \"updatedAt\": \"2026-07-06T13:03:00.742Z\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseURL}}/api/categories/{{categoryId}}",
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories",
+                    "{{categoryId}}"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"_id\": \"6a4ac4b27ca17c886e0530bb\",\n        \"name\": \"Clothing\",\n        \"description\": \"Things you wear\",\n        \"slug\": \"clothing\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-07-10T12:05:10.118Z\",\n        \"updatedAt\": \"2026-07-10T12:08:52.193Z\"\n    }\n}"
+            }
+          ]
         },
         {
           "name": "adds a new category",
@@ -101,7 +146,51 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "adds a new category",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Body parts\",\r\n    \"description\": \"frozen organs\",\r\n    \"slug\": \"body-parts\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseURL}}/api/categories",
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"name\": \"Body parts\",\n        \"description\": \"frozen organs\",\n        \"slug\": \"body-parts\",\n        \"_id\": \"6a50e0e40bb186087589d036\",\n        \"createdAt\": \"2026-07-10T12:09:08.784Z\",\n        \"updatedAt\": \"2026-07-10T12:09:08.784Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
         },
         {
           "name": "deletes category",
@@ -109,14 +198,14 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{BaseURL}}/api/categories/6a4c10733aa399a1eea4c23e",
+              "raw": "{{BaseURL}}/api/categories/{{categoryId}}",
               "host": [
                 "{{BaseURL}}"
               ],
               "path": [
                 "api",
                 "categories",
-                "6a4c10733aa399a1eea4c23e"
+                "{{categoryId}}"
               ]
             }
           },
@@ -151,7 +240,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BaseURL}}/api/products",
+              "raw": "{{BaseURL}}/api/products?category=Electronics",
               "host": [
                 "{{BaseURL}}"
               ],
@@ -162,7 +251,7 @@
               "query": [
                 {
                   "key": "category",
-                  "value": "electronics"
+                  "value": "Electronics"
                 }
               ]
             }
@@ -306,9 +395,9 @@
                   }
                 },
                 "url": {
-                  "raw": "{{URL}}/api/products/{{productId}}",
+                  "raw": "{{BaseURL}}/api/products/{{productId}}",
                   "host": [
-                    "{{URL}}"
+                    "{{BaseURL}}"
                   ],
                   "path": [
                     "api",
@@ -319,7 +408,7 @@
               },
               "status": "OK",
               "code": 200,
-              "_postman_previewlanguage": null,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "X-Powered-By",
@@ -327,7 +416,9 @@
                 },
                 {
                   "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
                 },
                 {
                   "key": "Content-Length",
@@ -397,9 +488,9 @@
                   }
                 },
                 "url": {
-                  "raw": "{{URL}}/api/products/",
+                  "raw": "{{BaseURL}}/api/products/",
                   "host": [
-                    "{{URL}}"
+                    "{{BaseURL}}"
                   ],
                   "path": [
                     "api",
@@ -410,7 +501,7 @@
               },
               "status": "Created",
               "code": 201,
-              "_postman_previewlanguage": null,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "X-Powered-By",
@@ -418,7 +509,9 @@
                 },
                 {
                   "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
                 },
                 {
                   "key": "Content-Length",
@@ -516,7 +609,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"productId\": \"6a40c49f53006c0ae329e732\",\r\n    \"totalPrice\": 0,\r\n    \"createdAt\": \"2026-07-07T22:27:06.908Z\",\r\n    \"updatedAt\": \"2026-07-07T22:27:06.908Z\",\r\n    \"__v\": 0\r\n}",
+              "raw": "{\r\n    \"productId\": \"6a4ac9cb8cacb94daf2c46c2\",\r\n    \"totalPrice\": 0,\r\n    \"createdAt\": \"2026-07-07T22:27:06.908Z\",\r\n    \"updatedAt\": \"2026-07-07T22:27:06.908Z\",\r\n    \"__v\": 0\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -551,9 +644,9 @@
                   }
                 },
                 "url": {
-                  "raw": "{{URL}}/api/cart/items",
+                  "raw": "{{BaseURL}}/api/cart/items",
                   "host": [
-                    "{{URL}}"
+                    "{{BaseURL}}"
                   ],
                   "path": [
                     "api",
@@ -564,7 +657,7 @@
               },
               "status": "OK",
               "code": 200,
-              "_postman_previewlanguage": null,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "X-Powered-By",
@@ -572,7 +665,9 @@
                 },
                 {
                   "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
                 },
                 {
                   "key": "Content-Length",
@@ -643,9 +738,9 @@
                   }
                 },
                 "url": {
-                  "raw": "{{URL}}/api/cart/items/6a40c49f53006c0ae329e732",
+                  "raw": "{{BaseURL}}/api/cart/items/6a40c49f53006c0ae329e732",
                   "host": [
-                    "{{URL}}"
+                    "{{BaseURL}}"
                   ],
                   "path": [
                     "api",
@@ -657,7 +752,7 @@
               },
               "status": "OK",
               "code": 200,
-              "_postman_previewlanguage": null,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "X-Powered-By",
@@ -665,7 +760,9 @@
                 },
                 {
                   "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
                 },
                 {
                   "key": "Content-Length",
@@ -699,7 +796,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{BaseURL}}/api/cart/items/6a4ac7628cacb94daf2c46c1",
+              "raw": "{{BaseURL}}/api/cart/items/{{productId}}",
               "host": [
                 "{{BaseURL}}"
               ],
@@ -707,7 +804,7 @@
                 "api",
                 "cart",
                 "items",
-                "6a4ac7628cacb94daf2c46c1"
+                "{{productId}}"
               ]
             }
           },
@@ -738,6 +835,20 @@
       "item": [
         {
           "name": "checkout(remember to write ur shipping address)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "pm.environment.set(\"orderId\", json.data._id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
           "request": {
             "method": "POST",
             "header": [],
@@ -777,9 +888,9 @@
                   }
                 },
                 "url": {
-                  "raw": "{{URL}}/api/orders",
+                  "raw": "{{BaseURL}}/api/orders",
                   "host": [
-                    "{{URL}}"
+                    "{{BaseURL}}"
                   ],
                   "path": [
                     "api",
@@ -789,7 +900,7 @@
               },
               "status": "Created",
               "code": 201,
-              "_postman_previewlanguage": null,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "X-Powered-By",
@@ -797,7 +908,9 @@
                 },
                 {
                   "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
                 },
                 {
                   "key": "Content-Length",
@@ -827,9 +940,34 @@
         },
         {
           "name": "All orders",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "{{BaseURL}}/api/orders",
               "host": [
@@ -845,9 +983,27 @@
         },
         {
           "name": "By Id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"shippingAddress\": {\r\n        \"fullName\": \"Ada Bug II\",\r\n        \"street\": \"Buggerton Street\",\r\n        \"city\": \"Bugum City\"\r\n    }\r\n}"
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/orders/{{orderId}}",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "{{orderId}}"
+              ]
+            }
           },
           "response": []
         },
@@ -866,14 +1022,14 @@
               }
             },
             "url": {
-              "raw": "{{BaseURL}}/api/orders/6a4fcc697fd30967e5ce6d46/status",
+              "raw": "{{BaseURL}}/api/orders/{{orderId}}/status",
               "host": [
                 "{{BaseURL}}"
               ],
               "path": [
                 "api",
                 "orders",
-                "6a4fcc697fd30967e5ce6d46",
+                "{{orderId}}",
                 "status"
               ]
             }
@@ -894,9 +1050,9 @@
                   }
                 },
                 "url": {
-                  "raw": "{{URL}}/api/orders/6a4fcc697fd30967e5ce6d46/status",
+                  "raw": "{{BaseURL}}/api/orders/6a4fcc697fd30967e5ce6d46/status",
                   "host": [
-                    "{{URL}}"
+                    "{{BaseURL}}"
                   ],
                   "path": [
                     "api",
@@ -908,7 +1064,7 @@
               },
               "status": "OK",
               "code": 200,
-              "_postman_previewlanguage": null,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "X-Powered-By",
@@ -916,7 +1072,9 @@
                 },
                 {
                   "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
                 },
                 {
                   "key": "Content-Length",

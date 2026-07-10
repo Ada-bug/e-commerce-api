@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Product = require('./models/product.js')
 const notFound = require('./middleware/notFound');
 const errorHandler = require('./middleware/errorHandler');
-// const mongoSanitize = require('express-mongo-sanitize'); --> it's not comp with express 5
+const mongoSanitize = require('express-mongo-sanitize');//--> it's not comp with express 5
 
 // Initialize express app
 const app = express();
@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 // mongo-sanitize:
-// app.use(mongoSanitize()); --> i'll add it later
+app.use(mongoSanitize());
 
 // Import routes
 const productRoutes = require('./routes/products');
