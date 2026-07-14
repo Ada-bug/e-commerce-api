@@ -1050,14 +1050,14 @@
                   }
                 },
                 "url": {
-                  "raw": "{{BaseURL}}/api/orders/6a4fcc697fd30967e5ce6d46/status",
+                  "raw": "{{BaseURL}}/api/orders/{{orderId}}/status",
                   "host": [
                     "{{BaseURL}}"
                   ],
                   "path": [
                     "api",
                     "orders",
-                    "6a4fcc697fd30967e5ce6d46",
+                    "{{orderId}}",
                     "status"
                   ]
                 }
